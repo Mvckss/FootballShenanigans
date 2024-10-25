@@ -1,0 +1,600 @@
+---
+title: "An Analysis on Potentially Asia-Pacific's Most Modern Football Lineup Currentlyt"
+subtitle: "AUTHOR: Kien Anh Le"
+
+format: 
+    html:
+      embed-resources: true
+      code-fold: true
+      title-block-banner: true
+      toc: true
+      code-block-bg: true
+      code-block-border-left: "#78C2AD"
+      theme: minty
+      mainfont: spectral
+---
+
+# I. Abstract
+
+This research examines the composition of lineups in "modern" football in the Asia-Pacific region. Its focus is on tactical development and individual performance measurement that defines the current era of football. Because football has moved towards becoming more dynamic. Ownership-based and data-driven games Including understanding which players exemplify these characteristics is important. This study identifies key players in positions that embody important qualities in modern football. Including technical ability, agility, tactical intelligence. and physical condition...
+
+Using data from advanced performance analytics platforms like FBref, we analyze key metrics like progressive passes. Expected Goals (xG) Defensive Pressure and success in raising the ball To rank players across the field, the report also delves into regional trends and developments in player development. It focuses on how teams Use a European inspired tactical system to compete at the highest international level. From this analysis We look forward to finalizing the potential candidates for the most innovative product portfolio in Asia Pacific. It represents a combination of strategic innovation and individual ingenuity.
+
+# II. Overview
+
+Throughout this report, we will break down our analysis step-by-step by answering these core questions:
+
+1.  **What is "Modern Football"? And How Do Teams Around the World Implement It?**
+
+    We'll define modern football, focusing on fast-paced, possession-oriented play, pressing, and tactical flexibility. Then, we'll look at how top teams like Manchester City and Bayern Munich use these strategies to dominate the game and set trends globally.
+
+2.  **How Does APAC's Football Development System Suit the Modern Game?**
+
+    This section explores how countries in the Asia-Pacific, like Japan and South Korea, are producing technically skilled players who fit modern football. We'll highlight investments in youth academies and coaching that help APAC align with global football trends.
+
+3.  **The Big Question: What is the Best and Most "Modern" Starting 11 in APAC?**
+
+    Here, we'll identify the current best starting 11 in the APAC region, using player stats to highlight those excelling in key roles like wingbacks, central midfielders, and strikers—all crucial for today’s high-tempo, versatile style of football.
+
+4.  **How and Why Were These Players Chosen for Each Position?**
+
+    This final section explains why each player was selected. We’ll discuss their specific roles, backed by data, and how their skills match modern football demands. We'll also pick a coach who can bring out the best in this lineup based on tactical flexibility and pressing strategies.
+
+This process will give us a clear picture of APAC’s top talents and how they fit into the global evolution of football.
+
+# III. No more "Beautiful Game". It's now "The Modern Game"
+
+Modern football is defined by fast, dynamic play with an emphasis on high pressing, possession-based tactics, and tactical flexibility. Key to modern football is the transition from defense to attack and vice versa, with players expected to perform multiple roles on the pitch (Memmert & Rein, 2018). Unlike traditional approaches that focused heavily on formations like 4-4-2, modern systems prioritize fluidity, allowing teams to adapt to various in-game situations.
+
+For example, teams like Manchester City and Liverpool have become known for their pressing systems—forcing the opposition to make mistakes by winning the ball high up the pitch. This strategy relies on athleticism, speed, and teamwork. These teams also build their attacks from the back, with defenders acting as ball distributors, which is a significant evolution in modern tactics (The Coaches' Voice, 2024).
+
+Another important aspect is data-driven decision-making. Clubs increasingly rely on performance analytics like expected goals (xG), progressive passing, and defensive pressures to refine strategies. Players are judged not just by traditional stats like goals or assists, but by how well they contribute to overall team dynamics, such as their involvement in creating scoring opportunities or their role in regaining possession (Memmert & Raabe, 2018).
+
+Around the world, teams have adopted these principles to various degrees. In Germany, teams like Bayern Munich have embraced pressing and positional play, while in Spain, possession-based tactics (such as those developed by Barcelona under Pep Guardiola) continue to influence top clubs. Italy has recently modernized as well, with teams like Inter Milan balancing traditional defensive solidity with quicker transitions.
+
+Modern football is about speed, flexibility, and intelligence, both on and off the ball. The best teams seamlessly combine these elements through tactical versatility, collective pressing, and heavy reliance on data analytics to maximize performance.
+
+# IV. The Rapid Modernization of APAC Football
+
+If I ask you to name a “major football region”, you will think of Europe, South America, or even Africa. Regions like Asia or North America, however, are barely mentioned in those conversations.
+
+The Asia-Pacific (APAC) and North America region, or APEC, is often overlooked in global football discussions, but recent developments suggest that it is emerging as a fertile ground for modern football talent. APEC has massively increased its sporting interest since the 21st century. Their success in not only football, but also every other sport, is a result of long-term investments in infrastructure, youth development, and coaching systems that focus on modern, data-driven approaches to the game (Lee & Tan, 2019).
+
+```{python}
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+fifa_ranking = pd.read_csv("G:/Project Stuffs/Football Data/fifa_ranking-2023-07-20.csv")
+fifa_ranking.sort_values(by=["rank_date","rank"],inplace=True)
+
+AFC = fifa_ranking[fifa_ranking["confederation"]=="AFC"]
+CONCACAF = fifa_ranking[fifa_ranking["confederation"]=="CONCACAF"]
+
+AFC_max_rank = AFC.groupby("rank_date")["rank"].min()
+CONCACAF_max_rank = CONCACAF.groupby("rank_date")["rank"].min()
+
+AFC_index_lowest = AFC_max_rank.index.get_loc('2014-11-27')
+CONCACAF_index_lowest = CONCACAF_max_rank.index.get_loc("2015-07-09")
+
+
+plt.figure(figsize=(14, 7))
+plt.plot(AFC_max_rank.index, AFC_max_rank.values, label='AFC Max Rank')
+plt.plot(CONCACAF_max_rank.index, CONCACAF_max_rank.values, label='CONCACAF Max Rank')
+plt.xlabel('Date')
+plt.ylabel('Rank')
+plt.title('Max Rank Over Time for AFC and CONCACAF')
+plt.xlim(AFC_max_rank.index[CONCACAF_index_lowest], AFC_max_rank.index[-1])
+plt.xticks(AFC_max_rank.index[CONCACAF_index_lowest::10])
+plt.gca().invert_yaxis()
+plt.legend()
+plt.show()
+```
+
+Inside APEC, some countries are developing in football better than others.
+
+Despite being labelled as “anti-football”, the United States has seen rapid football growth thanks to the MLS academies and competitive youth leagues (Bradshaw, 2017). American players like Christian Pulisic, Weston McKennie, and Gio Reyna are excelling at top European clubs, showcasing technical skills, tactical awareness, and the ability to adapt to high-pressing, possession-oriented systems.
+
+Similarly, South Korea has made significant progress in sports coaching, producing players known for their physicality, work rate, and tactical intelligence—attributes that are crucial in modern football (Park, 2011). Players like Son Heung-min and Kim Min-jae are perfect examples of how South Korea's football culture aligns with the demands of today’s game. Their ability to adapt to multiple tactical systems, especially in high-pressing, quick-transition setups, reflects the region's modernization.
+
+Australia’s football has also evolved, with the A-League introducing more progressive football tactics and producing players suited to fast-paced, possession-based systems. Their national teams have embraced the high-intensity style seen in Europe, and many Australian players have thrived in competitive European leagues, showcasing adaptability and tactical awareness (Larkin, 2023).
+
+With continued investment and development, APEC could soon emerge as a more significant player in the global football landscape.
+
+# V. The APEC 23
+
+```{python}
+#| echo: true
+#| eval: false
+
+from bs4 import BeautifulSoup
+import requests
+import pandas as pd
+import numpy as np
+from functools import reduce
+
+def get_data(data_url):
+    data_url = str(data_url)
+    data_page = requests.get(data_url)
+    data_soup = BeautifulSoup(data_page.text, "html")
+
+    data_table = data_soup.find("table", class_="min_width sortable stats_table min_width shade_zero")
+    data_unfilt_cols = data_table.find_all("th")
+
+    front,back = 0,0
+    for index, header in enumerate(data_unfilt_cols):
+        if header.get_text() == "Player":
+            front = index
+        if header.get_text() == "Matches":
+            back = index + 1
+        if front and back:
+            break
+    
+    data_cols = [title.text.strip() for title in data_unfilt_cols][front:back] 
+    data_df = pd.DataFrame(columns=data_cols)
+
+    data_col_data_draft = data_table.find_all("tr")
+    data_col_data = []
+    i = 2
+    while i < len(data_col_data_draft):
+        data_col_data.extend(data_col_data_draft[i:i+25])
+        i += 25 + 1
+    for data_row in data_col_data:
+        data_unfil_row = data_row.find_all("td") 
+        data_rows = [title.text.strip() for title in data_unfil_row] 
+        data_length = len(data_df)
+        data_df.loc[data_length] = data_rows
+
+
+    data_numeric_cols = data_df.columns[5:len(data_df.columns)-1]
+    for col in data_numeric_cols:
+        if col == "Born":
+            data_df[col] = pd.to_datetime(data_df[col],format="%Y").dt.year
+        else:
+            data_df[col] = data_df[col].replace(',', '', regex=True).apply(pd.to_numeric)
+            data_df[col] = data_df[col].fillna(0)
+
+    data_df.drop(columns="Matches", inplace=True)
+
+    data_df["Nation"] = data_df["Nation"].apply(lambda nation: nation.split()[1] if isinstance(nation, str) and len(nation.split()) > 0 else None)
+    data_df["Comp"] = data_df["Comp"].apply(lambda comp: " ".join(comp.split()[1:]) if isinstance(comp, str) and len(comp.split()) > 0 else None)
+
+    data_df.reset_index(drop=True, inplace=True)
+
+    return data_df
+
+# Initiating databases
+def_df = get_data("https://fbref.com/en/comps/Big5/2023-2024/defense/players/2023-2024-Big-5-European-Leagues-Stats")
+def_df.columns = ["Player", "Nation", "Pos", "Squad",'Comp', "Age", "Born", "90s","D_Tkl", "D_TklW", "Tkl_Def 3rd", "Tkl_Mid 3rd", "Tkl_Att 3rd","Chal_Tkl", "Chal_Att", "Chal_Tkl%", "Chal_Lost","Blocks", "B_Sh", "B_Pass", "Int", "Tkl+Int", "Clr", "Err"]
+
+pass_df = get_data("https://fbref.com/en/comps/Big5/2023-2024/passing/players/2023-2024-Big-5-European-Leagues-Stats")
+pass_df.columns = ['Player', 'Nation', 'Pos', 'Squad', 'Comp', 'Age', 'Born', '90s', 'Cmp_Total', 'Att_Total', 'Cmp%_Total', 'TotDist', 'PrgDist', 'Cmp_Short', 'Att_Short', 'Cmp%_Short','Cmp_Medium', 'Att_Medium','Cmp%_Medium','Cmp_Long', 'Att_Long', 'Cmp%_Long','Ast', 'xAG', 'xA', 'A-xAG', 'KP', 'P_1/3', 'PPA', 'CrsPA', 'PrgP']
+
+shot_df = get_data("https://fbref.com/en/comps/Big5/2023-2024/shooting/players/2023-2024-Big-5-European-Leagues-Stats")
+
+poss_df = get_data("https://fbref.com/en/comps/Big5/2023-2024/possession/players/2023-2024-Big-5-European-Leagues-Stats")
+poss_df.columns = ['Player', 'Nation', 'Pos', 'Squad', 'Comp', 'Age', 'Born', '90s','Touches', 'T_Def Pen', 'T_Def 3rd', 'T_Mid 3rd', 'T_Att 3rd', 'T_Att Pen', 'T_Live', 'Drib_Att', 'Drib_Succ', 'Drib_Succ%', 'Drib_Tkld', 'Drib_Tkld%', 'Carries', 'Carry_TotDist', 'Carry_PrgDist', 'Carry_PrgNum','Carry_1/3','Carry_PA','Carry_Miscon', 'Carry_Dispos', 'Rec', 'Rec_Prg']
+
+gsc_df = get_data("https://fbref.com/en/comps/Big5/2023-2024/gca/players/2023-2024-Big-5-European-Leagues-Stats")
+gsc_df.columns = ['Player', 'Nation', 'Pos', 'Squad', 'Comp', 'Age', 'Born', '90s','SCA', 'SCA90', 'SCA_PassLive', 'SCA_PassDead', 'SCA_Drib', 'SCA_Sh', 'SCA_Fld', 'SCA_Def', 'GCA', 'GCA90', 'GCA_PassLive', 'GCA_PassDead', 'GCA_Drib', 'GCA_Sh', 'GCA_Fld', 'GCA_Def']
+
+gk_df = get_data("https://fbref.com/en/comps/Big5/2023-2024/keepers/players/2023-2024-Big-5-European-Leagues-Stats")
+gk_df.columns = ['Player', 'Nation', 'Pos', 'Squad', 'Comp', 'Age', 'Born', 'MP','Starts','Min','90s',
+'GA', 'GA90', 'SoTA', 'Saves', 'Save%','W','D','L', 'CS', "CS%",'PKAAtt', 'PKAll','PKSv','PKm','PKASave%']
+
+adv_gk_df = get_data("https://fbref.com/en/comps/Big5/2023-2024/keepersadv/players/2023-2024-Big-5-European-Leagues-Stats")
+adv_gk_df.columns = ['Player', 'Nation', 'Pos', 'Squad', 'Comp', 'Age', 'Born','90s','GA','PKAll','FK','CK',"OG",'PSxG','PSxG/SoT','PSxG+/-',"PSxG-GA/90","Lau_Cmp","Lau_Att","Lau_Cmp%","P_Att","P_Thr","P_Launch%","P_AvgLen",'GK_Att',"GK_Lau%","GK_AvgLen","Cr_Opp","Cr_Stp","Cr_Stp%","Sw_OPA","Sw_OPA90","Sw_AvgDis"]
+
+dfs = [shot_df, pass_df,gsc_df, poss_df,def_df]
+df_gk = [gk_df,adv_gk_df]
+df_final = reduce(lambda left,right: pd.merge(left,right,on=['Player','Nation','Pos','Squad','Comp','Age','Born','90s']), dfs)
+df_gk = reduce(lambda left,right: pd.merge(left,right,on=['Player','Nation','Pos','Squad','Comp','Age','Born','90s']), df_gk)
+```
+
+## A. Data Source
+
+In selecting this APAC and North American squad, I employed data analysis from FBRef alongside a deep understanding of these regions' football landscapes. The squad is carefully constructed to ensure balance across all areas, with each player excelling in roles vital to modern football such as pressing, ball progression, and positional flexibility.
+
+It is also worth noting that the players are selected from the Big Five leagues (English Premier League, Spanish La Liga, German Bundesliga, Italian Serie A, and French Ligue 1). This ensures that only players competing at the highest level are chosen. Playing at such a high level and facing the toughest opposition better tests their abilities under pressure, their tactical adaptability, and overall football intelligence. Conveniently, the Big Five leagues also offer the best environments for “modern development”, given the quality of coaching, high-end facilities, and advanced sports science.
+
+## B. Approach Defense
+
+Our methodology of filtering players by slowly decreasing the percentile of specific stats until a player outperforms all those criteria is both data-driven and context-aware, combining statistical rigor with practical football knowledge.
+
+-   Using percentiles ensures that you're comparing players to a broad pool, ensuring that only those who perform well in key areas are chosen. This helps avoid outliers and one-dimensional players, emphasizing those with consistently high performance.
+
+-   Football is complex, and excelling in multiple key metrics indicates a well-rounded player. Your method ensures that players aren't just excelling in one area, but are solid across various metrics—whether it's passing, defending, or chance creation.
+
+-   The blend of intuition and football knowledge ensures that while data is a great tool, you're not blindly following it. Some intangibles (leadership, adaptability) aren't easily quantified but are critical for success, and your awareness of the game fills those gaps.
+
+This approach balances quantitative precision and qualitative judgmen**t**, ensuring the players selected are top performers not just by numbers but also in footballing terms.
+
+## C. The Squad
+
+Below is the 23-man squad, divided into goalkeepers, defenders, midfielders, and forwards, chosen to represent the pinnacle of modern football in the region.
+
+***Goalkeeper:*** Mory Diaw (Senegal, Clermont Foot), Keylor Navas (Costa Rica, PSG), Matt Turner (USA, Nottingham Forest)
+
+***Defenders:*** Alphonso Davies (Canada, Bayern Munich), Julian Araujo (Mexico, Bournemouth), Joe Scally (USA, Borussia Monchengladbach), Takehiro Tomiyasu (Japan, Arsenal), Timothy Weah (USA, Juventus), Antonee Robinson (USA, Fulham), Kim Min-jae (South Korea, Bayern Munich).
+
+***Midfielders:*** Lee Kang-in (South Korea, PSG), Daichi Kamada (Japan, Crystal Palace), Yunus Musah (USA, AC Milan), Weston McKennie (USA, Juventus), Takumi Minamino (Japan, AS Monaco), Wataru Endo (Japan, Liverpool), Junya Ito (Japan, Stade de Reims).
+
+***Attackers:*** Leon Bailey (Jamaica, Aston Villa), Son Heung-min (South Korea, Tottenham), Takefusa Kubo (Japan, Real Sociedad), Hwang Hee-chan (South Korea, Wolverhampton), Jonathan David (Canada, Lille LOSC), Christian Pulisic (USA, AC Milan).
+
+***Formation Of Choice: 4-3-3***
+
+![](APEC%2011.png){fig-align="center" width="378"}
+
+## D. The Reasoning
+
+### a. The Starting XI
+
+:::: {style="display: flex;"}
+![](Football%20Images/Mory%20Diaw.png){width="1.1in"}
+
+::: {style="flex: 57%;"}
+**Goalkeeper – Mory Diaw** *(Senegal, Clermont Foot)*
+
+*Remember when I said this is an APEC squad? Mory Diaw will be the only exception to this, as according to my research, no APEC goalkeeper reached his heights last season.* 
+:::
+::::
+
+Mory Diaw is a French-Senegalese goalkeeper known for his sweeper-keeper playstyle, where he excels in more than just shot-stopping. Currently playing for Clermont Foot in Ligue 1, Diaw has gained attention for his impressive ability to act as a defensive extension by aggressively coming off his line to intercept through balls and clear dangerous situations, a hallmark of modern sweeper-keepers. 
+
+During the 2023/24 Ligue 1 season, Diaw ranked 3rd in the league for Attempted Passes for Goalkeepers, 2nd for Cross Stoppage%, and most importantly, 1st in all sweeper statistics such as Defensive Actions Outside Penalty Area per 90 (#OPA/90 on FBRef). He also ranks highly in Europe for Save% and PSxG+/- (Expected Goals Condeded minus Goals Conceded).  
+
+Despite being relegated down to Ligue 2 with Clermont Foot last season, I will find it not surprising if any top European teams decide to sign Mory Diaw as a solid first-choice or backup option.
+
+ 
+
+:::: {style="display: flex;"}
+![](Football%20Images/Alphonso%20Davies.webp){width="144"}
+
+::: {style="flex: 57%;"}
+**Left Back – Alphonso Davies** *(Canada, Bayern Munich)*
+
+*From the cold lands of Vancouver to the Bavarian lands of Bayern Munich, Alphonso Davies has certified his status as one of, if not, the best left back in the world.*
+:::
+::::
+
+Davies’ most defining attribute is his blistering speed. Clocking sprint speeds of over 36 km/h, he is consistently among the fastest players in Europe. This makes him a nightmare for opposing wingers and defenders alike. 
+
+Davies is also ranked highly in offensive statistics for fullbacks. He is in the 90th percentile or higher in Progressive Carries, Successful Take-ons, Passes Attempted and Completed%. Perhaps his most outstanding statistic was his Successful Take-ons per 90, which after the 2023/24 season, was recorded at 3.06 - the highest of any fullbacks with at least 15 minutes played in the Bundesliga. His 56.6% successful tackle percentage certainly helps with his two-way playstyle. 
+
+Alphonso Davies has been an integral part of Bayern Munich’s success, helping them secure multiple Bundesliga titles and a Champions League trophy in 2020. His combination of raw athleticism, technical skill, and intelligence on and off the ball has redefined the modern full-back role, making him one of the most influential players of his generation.
+
+ 
+
+:::: {style="display: flex;"}
+![](Football%20Images/Takehiro%20Tomiyasu.webp){width="1.5in"}
+
+::: {style="flex: 57%;"}
+**Right Back – Takehiro Tomiyasu** *(Japan, Arsenal)*
+
+*For some reason, Japan has produced some world class fullbacks: Nagatomo, Sakai, and now Tomiyasu. But unlike his predecessors, Takehiro has reached somewhere a Japanese right-back has never reached before: the Premier League.* 
+:::
+::::
+
+Tomiyasu is known for his tactical intelligence, versatility, and defensive solidity. Currently playing for Arsenal in the Premier League, Tomiyasu has become a key figure in Mikel Arteta’s squad due to his adaptability and technical proficiency, capable of playing both as a right-back and center-back. 
+
+Interestingly, the way Tomiyasu contributes to Arsenal’s offense is not via dribbling like Alphonso Davies. A 82.4% pass completion rate and 0.22 assists per 90 put him among the world class for fullbacks. But most of his threats come from aerial duels and close-range shots. With 1.58 Aerials Won per 90 and 0.14 Expected Goals per 90, Tomiyasu ranks in the 90th percentile for his unique attacking prowess. 
+
+Tomiyasu’s versatility and defensive prowess have made him a vital piece in Arsenal’s modern footballing setup, while his tactical intelligence and technical skill make him one of Asia’s standout defenders on the world stage.
+
+ 
+
+:::: {style="display: flex;"}
+![](Football%20Images/Kim%20Min%20Jae.webp){width="144"}
+
+::: {style="flex: 57%;"}
+**Center Back – Kim Min-jae** *(South Korea, Bayern Munich)*
+
+*If you told a South Korean football fan in 2019 that one of their center backs in the K-League would transfer to Bayern Munich for a record-breaking 60 million euros 5 years later, they would probably call you crazy. But here we are. Kim Min-jae made that possible.*
+:::
+::::
+
+Kim Min-Jae is a cornerstone of Bayern Munich's defense, renowned for his incredible strength, game intelligence, and sweeping abilities. Since his transfer from Napoli in 2023, he has seamlessly transitioned into the Bundesliga, providing solid defensive contributions and proving to be one of the most reliable center-backs in Europe. 
+
+In the 2023/24 season, Kim has been a defensive juggernaut. Across his 22 Bundesliga appearances, he has maintained an average rating of 7.1—a testament to his consistency and impact in one of the toughest leagues in the world. Interestingly, for a center back, his attacking presence is higher up the pitch instead of deep below to support the build-up like an average modern defender. In fact, despite being a center back, playing fewer games, operating virtually in the same spaces as Alphonso Davies, Kim has more touches in the attacking and defensive 3rd combined than Davies last season (1129 compared to 1105). 
+
+Kim's style is characterized by a modern center-back approach: he's fast, good on the ball, and aggressive in stepping up to intercept attacks. His ability to act as a "sweeper" when Bayern pushes high up the pitch makes him invaluable in the modern game. He also excels at passing, often launching quick counterattacks from the back with a high pass completion rate.
+
+ 
+
+:::: {style="display: flex;"}
+![](Football%20Images/Joe%20Scally.webp){width="144"}
+
+::: {style="flex: 57%;"}
+**Center Back – Joe Scally** *(USA, Borussia Monchengladbach)*
+
+*You probably would not have heard of Joe Scally if you do not watch the Bundesliga regularly. This 21-year-old from Lake Grove, New York has certainly proved himself an underrated asset for Monchengladbach.* 
+:::
+::::
+
+Known for his physicality, work ethic, and tactical intelligence, Scally has quickly adapted to the rigors of top-level European football at a young age, consistently holding his own in one of the world’s most competitive leagues. 
+
+In the 2023/24 season, Scally has been a consistent presence in the starting lineup, totalling around 25 full matches. His involvement in Monchengladbach’s build-up play is clearly seen in his offensive dominance compared to other center backs. With 1.57 Progressive Carries and 3.02 Progressive Passes Receptions per 90, Scally has been used more as a “second defensive midfielder” instead of a traditional center back. This role, known as the “inverted fullback”, is specifically unique for Scally since he also can play on both sides if necessary. Once he transitioned into more of a center back role, Gerardo Seoane decided to keep using him as an “inverted fullback”. Thus, a perfect way to describe Joe Scally’s playstyle is “Beckenbauer-like”: he still can defend, but most of his value comes from a “midfielder-like” role. 
+
+What sets Scally apart is his defensive work rate and tactical flexibility, a player capable of contributing on both ends of the pitch. His performances in the Bundesliga have earned him regular call-ups to the U.S. Men's National Team, where he’s poised to be a critical player in the team’s defensive setup for the future.
+
+ 
+
+:::: {style="display: flex;"}
+![](Football%20Images/Daichi%20Kamada.webp){width="144"}
+
+::: {style="flex: 57%;"}
+**Defensive Midfielder – Daichi Kamada** *(Japan, Crystal Palace)*
+
+*The number 6 role has seen radical changes. No more absolute anchors like Patrick Vierra or elite offensive threats like Andrea Pirlo. A modern DM should do both of these roles efficiently. Who better reflects this change than Daichi Kamada?*
+:::
+::::
+
+Daichi Kamada is one of the most creative and tactically intelligent midfielders to come out of Asia in recent years. What makes Kamada stand out is his exceptional reading of the game and his ability to find pockets of space, often being in the right place at the right time to create or finish chances. His footballing intelligence extends to his work off the ball as well, often dropping deep to link play or pressing high to disrupt opposition build-up. This dual threat—both defensively and offensively—fits perfectly into the style of modern football, where midfielders are expected to be dynamic and adaptable.  
+
+Therefore, it is no surprise that his statistics are dominant EVERYWHERE. During his stint with Lazio last year, His passing and dribbling data always put him into the 75th percentile in Serie A, with the highlight being a ridiculous 87.9% Pass Completion Rate. He also became a hotspot for attacking for Lazio, with 3.32 touches inside opponent’s penalty area and 4.55 Progressive Passes Receptions per game, putting him comfortably inside the 90th percentile for each stat. 
+
+Kamada’s defensive abilities are not far behind, either. His stats for defense’s holy trinity (Tackles, Interceptions, and Blocks) is in the 90th percentile in Europe’s Big Five leagues. His 3.09 tackles per game is even higher than Rodri’s. 
+
+Kamada’s composure in front of goal and ability to pick out teammates with inch-perfect passes make him a key asset for any team looking to dominate possession and break down low blocks. His smooth transition from the Bundesliga to Serie A, now playing for Lazio, shows that his skillset is highly adaptable across different leagues and styles of play.
+
+ 
+
+:::: {style="display: flex;"}
+![](Football%20Images/Yunus%20Musah.webp){width="144"}
+
+::: {style="flex: 57%;"}
+**Center Midfielder – Yunus Musah** *(USA, AC Milan)*
+
+*In recent years, AC Milan has revamped its squad with English-speaking talents: Tomori, Abraham, Pulisic, and now Musah. Musah has become a globetrotter born in the States to Ghanaian parents, grew up in Italy and England, went to Spain for his first club, and back to Italy to really shift his career into another gear.* 
+:::
+::::
+
+Musah’s game is defined by energy, athleticism, and versatility, which make him an ideal box-to-box midfielder. Despite his youth, Musah has already demonstrated maturity in his decision-making and tactical awareness, traits that usually develop later in players' careers.  
+
+One of Musah’s standout qualities is his ball-carrying ability. His acceleration and strength make him incredibly hard to dispossess when driving forward with the ball. With 1.49 successful dribbles per game, Musah ranks among the best (93rd percentile) box-to-box midfielders. This ability allows him to transition defense into attack rapidly, making him a key component in counter-attacks.  
+
+His values extend beyond offensive prowess. His tackling – a skill extremely essential for box-to-box midfielders – is almost the world’s best. A 63.6% successful tackling rate and only 0.37 challenges lost per game have put him amongst the elites like Declan Rice and Pedri. 
+
+Musah’s international experience with the U.S. Men’s National Team has only added to his pedigree. Playing in major tournaments like the World Cup and against top-tier opposition has hardened him into a well-rounded midfielder. Despite being surrounded by stars at Milan, Musah’s adaptability and relentless work ethic have made him stand out, and his potential suggests he could be a leader for both club and country in the near future.
+
+ 
+
+:::: {style="display: flex;"}
+![](Football%20Images/Junya%20Ito.webp){width="144"}
+
+::: {style="flex: 57%;"}
+**Attacking Midfielder – Junya Ito** *(Japan, Stade de Reims)*
+
+*”What’s a Reims?” is probably a question circulating your mind right now. Not only is Reims coached by the supposed ”Football Manager enthusiast” Will Still, but it is also home to two Japanese internationals. The more well-known of them is the 31-year-old Junya Ito.* 
+:::
+::::
+
+Though Junya Ito is primarily recognized for his role as a winger, he has recently demonstrated the qualities of a modern attacking midfielder when utilized centrally. His game-breaking pace and close control, typically hallmarks of his wing play, translate perfectly into the attacking midfield role, where space and quick decision-making are key. 
+
+One of Ito’s most prominent traits is his incisive passing, both as through passes and crosses. During the 2023/24 season, his Expected Assists, Passes into the Penalty Area, and Crosses into the Penalty Area all ranked in the 95th percentile or higher in Europe. His ability to read the game and position himself in threatening zones adds an extra dimension to his team's attack. With his dribbling skills, he often attracts defenders, freeing up teammates, which is crucial for quick transitions and counter-attacks—a staple of modern football. 
+
+Ito has also proven to be a dead-ball specialist, often being designated as a corner taker during his times at Genk and Reims. Considering his 54.6% successful dribble rate last season, he could also work independently and create chances on his own.  
+
+By adding this central attacking element to his game, Junya Ito showcases the evolution of his playstyle, further solidifying his reputation as a complete and adaptable offensive force.
+
+ 
+
+:::: {style="display: flex;"}
+![](Football%20Images/Leon%20Bailey.webp){width="144"}
+
+::: {style="flex: 57%;"}
+**Left Wing – Leon Bailey** *(Jamaica, Aston Villa)*
+
+*The Carribean has produced some notable ballers the past few years. While Jamaica is most famous for sprinters on the track like Usain Bolt or Yohan Blake, they also have another runner on the turfs of the English Midlands – Leon Bailey.* 
+:::
+::::
+
+Known for his direct style of play, Bailey excels at dribbling, cutting inside from the flanks, and launching long-range strikes or delivering pinpoint crosses into the box. His left foot is particularly dangerous, as it allows him to drift in from the right wing and unleash powerful shots or curlers toward the goal. 
+
+Last season, Bailey excelled at both facets of attacking: shooting and passing. Bailey’s a patient shot selector, which explained his 95th percentile Goals/Shot and On Target/Shot statistics. He overperformed his Expected Goals by 0.16, which is impressive considering how other Premier League wingers did in that category.  
+
+Bailey’s passing game, specifically his through balls, has massively improved thanks to Unai Emery. A 0.4 Expected Assisted Goals and 0.32 Expected Assists has put him in the 97th percentile of Premier League wingers. 
+
+Bailey's adaptability and flair also make him well-suited for modern tactical systems that demand wingers contribute defensively. His pressing game has improved significantly compared to when he was with Bayer Leverkusen, and his ability to track back and help his team regain possession is an asset in counter-pressing situations. Despite dealing with occasional injuries, Bailey’s impact when fit is undeniable, and his ability to change the outcome of games with a moment of brilliance showcases his importance in both club and international football for Jamaica.
+
+ 
+
+:::: {style="display: flex;"}
+![](Football%20Images/Takefusa%20Kubo.webp){width="144"}
+
+::: {style="flex: 57%;"}
+**Right Wing – Takefusa Kubo** *(Japan, Real Sociedad)*
+
+*Real Madrid has produced some exciting young wingers: Raúl González, Lucas Vazquez, Rodrygo, and even Vinicius Jr. Takefusa Kubo is also no exception, except for the fact that he did not even debut for the Los Blancos. Nevertheless, he went on to prove his worth at Mallorca, and then finally settled in at San Sebastian.* 
+:::
+::::
+
+Takefusa Kubo’s playstyle is defined by his versatility, agility, and technical finesse, making him an ideal modern winger. His low center of gravity allows him to maneuver in tight spaces, often beating defenders with a combination of quick dribbling and sharp changes in direction. His dribbling technique is highly refined, with close ball control reminiscent of top-tier playmakers. His 5.69 Progressive Carries per 90 ranks in the top 10 for wingers in Europe last season. Accompanied by a 2.64 Carries in Penalty Area per 90 (98th percentile in La Liga) and 141.40 meters of Progressive Carrying Distance per match, he was a constant offensive threat for Real Sociedad. 
+
+Similar to Leon Bailey, he is also an intelligent playmaker, possessing great vision to pick out key passes that break defensive lines. A 0.27 in Expected Assists and Expected Assisted Goal puts him in La Liga’s 90th percentile. Interestingly, although considered a volume dribbler, Kubo absolutely excelled in crossing last season, averaging 6.07 crosses per 90 and was on corner duties for one of La Liga’s most prolific set-piece teams. This probably explains his league-leading 1.93 Inswinging Corner Kicks per game. 
+
+What sets Kubo apart is his defensive work rate. He presses high and recovers the ball, demonstrating a commitment to modern football's demand for wide players to contribute off the ball as well. His ability to switch between defense and attack with fluidity makes him a complete winger—agile, intelligent, and hardworking.
+
+ 
+
+:::: {style="display: flex;"}
+![](Football%20Images/Sonny.webp){width="144"}
+
+::: {style="flex: 57%;"}
+**Striker – Son Heung-min** *(South Korea, Tottenham)*
+
+*There would be no non-European dream team without the inclusion of Son Heung-min. A legend not only to South Koreans but also the entirety of Asia. Without Harry Kane, Tottenham has always envisioned Son as their leader and main threat up top. He is the perfect striker for this team.* 
+:::
+::::
+
+A rare and valuable trait, Son is highly proficient with both feet. This makes him unpredictable as he can shoot and pass with equal quality using either foot, making it hard for defenders to know which way to force him. His ambidexterity allows him to finish from difficult angles and makes him a threat whether he plays on the left or right side of the attack. 
+
+Son’s finishing ability is top-tier, both in open play and on counterattacks. His goal-scoring instinct comes alive in transition moments, where he often finds himself in perfect positions to finish off moves (with a 3.96 SCA, putting him in the 93rd percentile of Premier League strikers, this is certainly the case). He excels at both close-range finishes and long-range strikes, making him one of the most versatile goal-scorers. His composure in front of goal and ability to consistently find the back of the net is reflected by his +0.15 Goals/Expected Goals differential – something rare for most Premier League strikers. 
+
+A modern striker is also expected to pass and assist his wingers or attacking midfielders. And with prior experiences as a winger himself, Son has become a key playmaker even if playing as a number 9. Last season, all of his key passing statistics, from Pass Completion% to Expected Assists were inside the 90th percentile of Premier League strikers. His 0.36 xAG and 1.99 Passes into Penalty Areas even led Premier League strikers last season. 
+
+Son is a key figure in Tottenham’s counterattacking style of play. His acceleration, paired with his intelligent positioning, allows him to exploit spaces left behind by opposing defenders. A league-leading 9.97 Progressive Pass Receptions last season had certainly solidified his importance in Ange Postecoglou's system.
+
+ 
+
+### b. The Bench
+
+:::: {style="display: flex;"}
+![](Football%20Images/Keylor%20Navas.webp){width="144"}
+
+::: {style="flex: 57%;"}
+**Goalkeeper – Keylor Navas** *(Costa Rica, PSG)*
+
+*The 2014 World Cup was not only James Rodriguez’s breakout tournament. A 27-year-old Keylor Navas burst onto the scene as a vital piece of Costa Rica’s miracle run to the quarterfinals. Despite not being regarded as a sweeper keeper, Navas’s experience will sure be an asset for the APEC 23.* 
+:::
+::::
+
+ 
+
+:::: {style="display: flex;"}
+![](Football%20Images/Matt%20Turner.webp){width="144"}
+
+::: {style="flex: 57%;"}
+**Goalkeeper – Matt Turner** *(USA, Nottingham Forest)*
+
+*During Keylor Navas’s odd tenure at Nottingham Forest, Matt Turner was also there. Turner is a shot-stopping specialist, known for his incredible reflexes and positioning. His standout performances during the Gold Cup solidified his reputation. He's made significant strides in improving his footwork, making him a modern keeper.* 
+:::
+::::
+
+ 
+
+:::: {style="display: flex;"}
+![](Football%20Images/Timothy%20Weah.webp){width="144"}
+
+::: {style="flex: 57%;"}
+**Fullback – Timothy Weah** *(USA, Juventus)*
+
+*Former Ballon d'Or winner and president of Liberia George Weah’s son, Timothy is well on his path to follow his father’s success. Weah has contributed massively to Juventus’ playstyle ever since he joined The Old Lady in 2023. Fast, skillful, and agile, Weah is considered to be the Alphonso Davies of the Americas.* 
+:::
+::::
+
+ 
+
+:::: {style="display: flex;"}
+![](Football%20Images/Antonee%20Robinson.webp){width="144"}
+
+::: {style="flex: 57%;"}
+**Fullback – Antonee Robinson** *(USA, Fulham)*
+
+*Antonee Robinson is a fast, athletic left-back known for his tireless work rate and attacking runs down the flank. Defensively solid, he uses his speed to recover quickly and shut down opponents. Robinson excels in overlapping runs and crossing, making him a key offensive outlet.* 
+:::
+::::
+
+ 
+
+:::: {style="display: flex;"}
+![](Football%20Images/Julian%20Araujo.webp){width="144"}
+
+::: {style="flex: 57%;"}
+**Fullback/Centerback – Julian Araujo** *(Mexico, Bournemouth)*
+
+*If you are not a Culer, you probably have not heard about Julian Araujo. He loves to bomb forward, contributing to attacks with dangerous overlapping runs and precise crosses. Defensively, he's tenacious, with strong tackling and good recovery speed, making him reliable in one-on-one situations.* 
+:::
+::::
+
+ 
+
+:::: {style="display: flex;"}
+![](Football%20Images/Weston%20McKennie.webp){width="144"}
+
+::: {style="flex: 57%;"}
+**Defensive/Central Midfielder – Weston McKennie** *(USA, Juventus)*
+
+*Another American, another Juventus player. Weston McKennie is known for his box-to-box playstyle. His work rate and physicality allow him to dominate midfield battles, while his late runs into the box provides an attacking threat. Defensively, he’s aggressive in pressing and tackling, fitting well into high-tempo systems.* 
+:::
+::::
+
+ 
+
+:::: {style="display: flex;"}
+![](Football%20Images/Takumi%20Minamino.webp){width="144"}
+
+::: {style="flex: 57%;"}
+**Attacking Midfielder – Takumi Minamino** *(Japan, AS Monaco)*
+
+*Takumi Minamino has gone from Salzburg to Merseyside, and now to Monaco. Although well-known, nobody seems to truly appreciate his Brazilian-like technical ability and intelligence. His off-the-ball movement creates space for teammates, and his pressing style is like those preferred by Jurgen Klopp or Thomas Tuchel.* 
+:::
+::::
+
+ 
+
+:::: {style="display: flex;"}
+![](Football%20Images/Wataru%20Endo.webp){width="144"}
+
+::: {style="flex: 57%;"}
+**Defensive/Central Midfielder – Wataru Endo** *(Japan, Liverpool)*
+
+*While Minamino is a former Red, Wataru Endo is a current Red. His ball-winning skills are paired with composure in possession, making him vital in transitioning from defense to attack. Endo excels at distributing the ball under pressure and is often the anchor in his team’s midfield, dictating the tempo of play.* 
+:::
+::::
+
+ 
+
+:::: {style="display: flex;"}
+![](Football%20Images/Lee%20Kang-in.webp){width="144"}
+
+::: {style="flex: 57%;"}
+**Attacking Midfielder/Winger – Lee Kang-in** *(South Korea, PSG)*
+
+*Lee Kang-in is PSG’s first ever South Korean player in their history. His playstyle emphasizes quick, intelligent decision-making, often threading through balls to split defenses or linking play in tight spaces. With excellent dribbling skills, high football IQ and great set-piece taking, he adds additional threat to any team he plays for.* 
+:::
+::::
+
+ 
+
+:::: {style="display: flex;"}
+![](Football%20Images/Hwang%20Hee-chan.webp){width="144"}
+
+::: {style="flex: 57%;"}
+**Winger/Striker – Hwang Hee-chan** *(South Korea, Wolverhampton)*
+
+*The 2018-19 RB Salzburg front three is iconic in hindsight: Erling Haaland up top, Minamino on the right, and Hwang Hee-chan on the left. His playstyle is similar to Kubo’s: agile, skillful, extremely press-minded. His only downside is his rather bulty stature, which will typically make him less preferable in many managers’ eyes.*
+:::
+::::
+
+ 
+
+:::: {style="display: flex;"}
+![](Football%20Images/Jonathan%20David.webp){width="144"}
+
+::: {style="flex: 57%;"}
+**Striker – Jonathan David** *(Canada, Lille LOSC)*
+
+*Jonathan David have been CanMNT’s face of the attacking line for years now. His sharp movement, clinical finishing, and ability to find space makes him a consistent goal threat. With great pace, David thrives in counter-attacking systems, often pressing defenders and finishing with both feet.*
+:::
+::::
+
+ 
+
+:::: {style="display: flex;"}
+![](Football%20Images/Christian%20Pulisic.webp){width="144"}
+
+::: {style="flex: 57%;"}
+**Winger/Striker – Christian Pulisic** *(USA, AC Milan)*
+
+*Leaving out “Captain America” off the starters is probably the hardest decision I made. Explosive, close control, ability to take on defenders, he has them all. Pulisic excels in transition, often leading counterattacks with his speed and direct style of play. However, potential-wise, he just lacks behind Bailey or Kubo.* 
+:::
+::::
+
+ 
+
+:::: {style="display: flex;"}
+![](Football%20Images/Angie.webp){width="144"}
+
+::: {style="flex: 57%;"}
+**Head Coach – Ange Postecoglou** *(Australia, Tottenham)*
+
+*Ange’s teams play with a high defensive line and rely on fullbacks pushing up the field, creating numerical overloads in midfield. This fluid, attacking approach is built around ball retention and short passing to break down defenses. The wingers and strikers are dynamic, constantly switching positions to stretch the defense*
+:::
+::::
+
+# VI. Conclusion
+
+In conclusion, this project aimed to analyze and construct a modern football lineup for the Asia-Pacific region, employing data-driven methods and an understanding of current football tactics. By defining "modern football" through principles such as high pressing, versatility, and ball retention, we explored how APAC's football development aligns with these global trends. By examining player attributes and contributions, primarily from those competing in Europe’s elite leagues, we identified a 23-man squad that embodies these modern football ideals. This analysis not only highlights the region’s growing presence in global football but also underscores how the game’s evolution is reshaping the roles of players and their tactical deployment across all levels of competition. 
+
+# References
