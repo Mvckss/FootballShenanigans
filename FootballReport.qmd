@@ -60,6 +60,8 @@ If I ask you to name a “major football region”, you will think of Europe, So
 
 The Asia-Pacific (APAC) and North America region, or APEC, is often overlooked in global football discussions, but recent developments suggest that it is emerging as a fertile ground for modern football talent. APEC has massively increased its sporting interest since the 21st century. Their success in not only football, but also every other sport, is a result of long-term investments in infrastructure, youth development, and coaching systems that focus on modern, data-driven approaches to the game (Lee & Tan, 2019).
 
+This change can certainly be seen on AFC and CONCACAF's best teams' rankings, where it has relatively improved since 2015.
+
 ```{python}
 import pandas as pd
 import numpy as np
@@ -78,7 +80,7 @@ AFC_index_lowest = AFC_max_rank.index.get_loc('2014-11-27')
 CONCACAF_index_lowest = CONCACAF_max_rank.index.get_loc("2015-07-09")
 
 
-plt.figure(figsize=(14, 7))
+plt.figure(figsize=(10, 7))
 plt.plot(AFC_max_rank.index, AFC_max_rank.values, label='AFC Max Rank')
 plt.plot(CONCACAF_max_rank.index, CONCACAF_max_rank.values, label='CONCACAF Max Rank')
 plt.xlabel('Date')
@@ -229,6 +231,9 @@ Below is the 23-man squad, divided into goalkeepers, defenders, midfielders, and
 
 ### a. The Starting XI
 
+::::::::::::::::::::::::: panel-tabset
+#### Goalkeeper
+
 :::: {style="display: flex;"}
 ![](Football%20Images/Mory%20Diaw.png){width="1.1in"}
 
@@ -246,6 +251,8 @@ During the 2023/24 Ligue 1 season, Diaw ranked 3rd in the league for Attempted P
 Despite being relegated down to Ligue 2 with Clermont Foot last season, I will find it not surprising if any top European teams decide to sign Mory Diaw as a solid first-choice or backup option.
 
  
+
+#### Defenders
 
 :::: {style="display: flex;"}
 ![](Football%20Images/Alphonso%20Davies.webp){width="144"}
@@ -319,6 +326,8 @@ What sets Scally apart is his defensive work rate and tactical flexibility, a pl
 
  
 
+#### Midfielders
+
 :::: {style="display: flex;"}
 ![](Football%20Images/Daichi%20Kamada.webp){width="144"}
 
@@ -379,6 +388,8 @@ By adding this central attacking element to his game, Junya Ito showcases the ev
 
  
 
+#### Attackers
+
 :::: {style="display: flex;"}
 ![](Football%20Images/Leon%20Bailey.webp){width="144"}
 
@@ -436,8 +447,14 @@ A modern striker is also expected to pass and assist his wingers or attacking mi
 Son is a key figure in Tottenham’s counterattacking style of play. His acceleration, paired with his intelligent positioning, allows him to exploit spaces left behind by opposing defenders. A league-leading 9.97 Progressive Pass Receptions last season had certainly solidified his importance in Ange Postecoglou's system.
 
  
+:::::::::::::::::::::::::
+
+ 
 
 ### b. The Bench
+
+::::::::::::::::::::::::::: panel-tabset
+#### Goalkeepers
 
 :::: {style="display: flex;"}
 ![](Football%20Images/Keylor%20Navas.webp){width="144"}
@@ -462,6 +479,8 @@ Son is a key figure in Tottenham’s counterattacking style of play. His acceler
 ::::
 
  
+
+#### Defenders
 
 :::: {style="display: flex;"}
 ![](Football%20Images/Timothy%20Weah.webp){width="144"}
@@ -498,6 +517,8 @@ Son is a key figure in Tottenham’s counterattacking style of play. His acceler
 ::::
 
  
+
+#### Midfielders
 
 :::: {style="display: flex;"}
 ![](Football%20Images/Weston%20McKennie.webp){width="144"}
@@ -547,6 +568,8 @@ Son is a key figure in Tottenham’s counterattacking style of play. His acceler
 
  
 
+#### Attackers
+
 :::: {style="display: flex;"}
 ![](Football%20Images/Hwang%20Hee-chan.webp){width="144"}
 
@@ -582,6 +605,9 @@ Son is a key figure in Tottenham’s counterattacking style of play. His acceler
 ::::
 
  
+:::::::::::::::::::::::::::
+
+### c. The Coach
 
 :::: {style="display: flex;"}
 ![](Football%20Images/Angie.webp){width="144"}
@@ -598,3 +624,17 @@ Son is a key figure in Tottenham’s counterattacking style of play. His acceler
 In conclusion, this project aimed to analyze and construct a modern football lineup for the Asia-Pacific region, employing data-driven methods and an understanding of current football tactics. By defining "modern football" through principles such as high pressing, versatility, and ball retention, we explored how APAC's football development aligns with these global trends. By examining player attributes and contributions, primarily from those competing in Europe’s elite leagues, we identified a 23-man squad that embodies these modern football ideals. This analysis not only highlights the region’s growing presence in global football but also underscores how the game’s evolution is reshaping the roles of players and their tactical deployment across all levels of competition. 
 
 # References
+
+Adrian K. Bradshaw. (2017). Growing the Game: Soccer in America. University of Maryland, College Park.  
+
+Larkin, P., Spittle, M., Farrow, D., Maximos, Y., & Höner, O. (2023). The golden generation of Australian Soccer: understanding the factors which influenced their development. Soccer & Society, 24(8), 1041–1055. <https://doi.org/10.1080/14660970.2023.2192486>  
+
+Memmert, D., & Raabe, D. (2018). Data Analytics in Football. Routledge. <https://doi.org/10.4324/9781351210164>  
+
+The Coaches’ Voice. (2024, March 11). Exceptional’: Liverpool v Manchester City tactical analysis. The Coaches’ Voice. 
+
+Jae Woo Park. (2011). Elite Sport Development in South Korea: An Analysis of Policy Change in the Sports of Athletics, Archery and Baseball \[For the award of Doctor of Philosophy\]. Loughborough University.  
+
+Memmert, D., & Rein, R. (2018). Match analysis, Big Data and tactics: current trends in elite soccer. Deutsche Zeitschrift Für Sportmedizin, 2018(03), 65–72. https://doi.org/10.5960/dzsm.2018.322 
+
+Lee, J. W., & Tan, T.-C. (2019). The rise of sport in the Asia-Pacific region and a social scientific journey through Asian-Pacific sport. Sport in Society, 22(8), 1319–1325. https://doi.org/10.1080/17430437.2019.1621013    
